@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.collections.ObservableList?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleGroup?>
+
+
+<GridPane fx:id="root" fx:controller="controller.UgovorController"  xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="30" vgap="10" prefWidth="1350.0"  >
+<padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
+<Label id="unesite" text="Unesite podatke o ugovoru:" 
+         GridPane.columnIndex="0" GridPane.rowIndex="0"
+        GridPane.columnSpan="2"/>
+    <Label text="Ime:"
+        GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+ 
+    <TextField fx:id="ime"
+        GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+ 
+    <Label text="Prezime:"
+        GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+ 
+    <TextField fx:id="prezime" 
+        GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    
+   <Label text="Adresa:"
+        GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+ 
+    <TextField fx:id="adresa" 
+        GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+    
+       <Label text="Brzina:"
+        GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+ 
+
+        <ComboBox fx:id="brzina" GridPane.columnIndex="1" GridPane.rowIndex="4" prefWidth="185" >
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="2 MBit"/>
+                    <String fx:value="5 MBit"/>
+                    <String fx:value="10 MBit"/>
+                    <String fx:value="20 MBit"/>
+                    <String fx:value="50 MBit"/>
+                    <String fx:value="100 MBit"/>
+                </FXCollections>
+            </items>
+        </ComboBox>
+        
+        <Label text="Protok:"
+        GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+ 
+
+        <ComboBox fx:id="protok" GridPane.columnIndex="1" GridPane.rowIndex="5" prefWidth="185"  >
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="1 GB"/>
+                    <String fx:value="5 GB"/>
+                    <String fx:value="10 GB"/>
+                    <String fx:value="100 GB"/>
+                    <String fx:value="Flat"/>
+                </FXCollections>
+            </items>
+        </ComboBox>
+        
+        <Label text="Trajanje ugovora:"
+        GridPane.columnIndex="0" GridPane.rowIndex="6" GridPane.rowSpan="2"  />
+        
+        <fx:define>
+            <ToggleGroup fx:id="toggleGroup"/>
+        </fx:define>
+        
+        <RadioButton   fx:id="1_godina" selected="false" text="1 godina" toggleGroup="$toggleGroup" GridPane.columnIndex="1" GridPane.rowIndex="6"  /> 
+        <RadioButton   fx:id="2_godine" selected="false" text="2 godine" toggleGroup="$toggleGroup" GridPane.columnIndex="1" GridPane.rowIndex="7"  />
+            
+        
+    <HBox spacing="10" alignment="bottom_right" 
+        GridPane.columnIndex="1" GridPane.rowIndex="9">
+        <Button text="Snimi"  fx:id="btnSnimi" onAction="#Snimi" onMouseReleased="#clearForm"  />
+          <Button text="Brisi"  fx:id="btnBrisi" onAction="#Brisi"   />
+    </HBox>
+
+  <Label text="Lista ugovora:" fx:id="listaUgovora"
+        GridPane.columnIndex="2" GridPane.rowIndex="0"/> 
+  
+    <TableView fx:id="tableView" GridPane.columnIndex="2" 
+         GridPane.rowIndex="1" GridPane.rowSpan="9"  prefWidth="800" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+        
+         <columns>
+          <TableColumn fx:id="idColumn" text="Br. ugovora" prefWidth="100" >
+          </TableColumn>
+          <TableColumn fx:id="imeColumn" text="Ime" prefWidth="150" >
+          </TableColumn>
+          <TableColumn fx:id="prezimeColumn" text="Prezime" prefWidth="150" >
+          </TableColumn>
+          <TableColumn fx:id="adresaColumn" text="Adresa" prefWidth="150" >
+          </TableColumn>
+          <TableColumn fx:id="brzinaColumn" text="Brzina" prefWidth="100" >
+          </TableColumn>
+          <TableColumn fx:id="protokColumn" text="Protok" prefWidth="100" >
+          </TableColumn>
+          <TableColumn fx:id="trajanjeColumn" text="Trajanje Ugovora" prefWidth="150" >
+          </TableColumn>
+     </columns>  
+    </TableView>
+</GridPane>
+
+
+
+
+
+
+
